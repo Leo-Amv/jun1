@@ -1,6 +1,7 @@
 package ru.gb;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -27,5 +28,21 @@ public class Main {
         int maxNumber = randNumbers.stream().max(Integer::compare).get();
         System.out.println(randNumbers.stream().filter(x -> x > 500000).mapToLong(x -> (x * 5) - 150).sum());
         System.out.println(randNumbers.stream().filter(x -> (x * x) < 100000).count());
+
+        List<Employee> employees = Arrays.asList(
+                new Employee("Vasya",27,30000.0,"Consult"),
+                new Employee("Petya",25,3000.0,"Sale"),
+                new Employee("Alex",22,100.0,"Support"),
+                new Employee("Leo",30,2400.0,"Consult"),
+                new Employee("Nick",19,34500.0,"Sale"),
+                new Employee("Michael",24,12300.0,"Support"),
+                new Employee("Petr",26,4500.0,"Consult"),
+                new Employee("Olga",28,37750.0,"Support"),
+                new Employee("Vika",29,30234.0,"Consult"),
+                new Employee("Masha",40,301230.0,"Sale"),
+                new Employee("Lera",23,54600.0,"Support"));
+
+        employees.stream().map(x->x.getDepartment()).distinct().forEach(System.out::println);
+        employees.stream().filter(e -> e.getSalary() < 10000).forEach(e -> e.setSalary(e.getSalary() * 1.20));
     }
 }
