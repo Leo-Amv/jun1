@@ -25,7 +25,7 @@ public class Main {
             randNumbers.add(rand.nextInt(1000000));
         }
         int maxNumber = randNumbers.stream().max(Integer::compare).get();
-        System.out.println(randNumbers.stream().filter(x -> x > 500000).map(x -> x * 5).mapToInt(x-> x -150).sum());
-        System.out.println(randNumbers.stream().mapToInt(x -> x*x).filter(x->x<100000).count());
+        System.out.println(randNumbers.stream().filter(x -> x > 500000).mapToLong(x->(x*5)-150).sum());
+        System.out.println(randNumbers.stream().filter(x->(x*x)<100000).count());
     }
 }
